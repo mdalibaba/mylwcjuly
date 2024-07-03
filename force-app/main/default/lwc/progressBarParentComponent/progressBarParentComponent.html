@@ -1,0 +1,34 @@
+<template>
+    <div class="margin-bottom-2rem">
+        <lightning-card title="Passing data to Child on action at parent" icon-name="custom:custom14">
+            <div class="slds-m-around_medium">
+                <div class="parent-wrapper">
+                    <h2>Parent Component</h2>
+                    <div class="field">
+                        <label for="name">Enter your percentage:</label>
+                        <input id="percentage" type="number" min="0" max="100" name="percentage" onkeyup={changeHandler}
+                            value={percentage} />
+
+                            <input id="myname" type="text"   name="myname" onkeyup={changeHandlerName}
+                            value={myname} />
+                    </div>
+                    <div class="child-wrapper">
+                        <h2>Child Component</h2>
+                        <c-progress-bar-child-component percentage={percentage} ></c-progress-bar-child-component>
+                    </div>
+                    <div class="field">
+                        <label  >Enter your numbers:</label>
+                        <lightning-input id="num1" type="number"   name="num1"   value={num1}  onchange= {numchange} ></lightning-input>
+                             
+
+                        <lightning-input id="num2" type="number"   name="num2"   value={num2}  onchange= {numchange} ></lightning-input>
+                        <br>
+                        result: 
+                        <lightning-input id="output" type="number"   name="output"   value={output}  disabled ></lightning-input>
+                    </div>
+                    <lightning-button label="Divide" onclick={divideNumbers_handle}></lightning-button>
+                </div>
+            </div>
+        </lightning-card>
+    </div>
+</template>
