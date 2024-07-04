@@ -9,12 +9,12 @@
                         <input id="percentage" type="number" min="0" max="100" name="percentage" onkeyup={changeHandler}
                             value={percentage} />
 
-                            <input id="myname" type="text"   name="myname" onkeyup={changeHandlerName}
+                            <input id="myname" type="text"   name="myname" onchange={changeHandlerName}
                             value={myname} />
                     </div>
                     <div class="child-wrapper">
                         <h2>Child Component</h2>
-                        <c-progress-bar-child-component percentage={percentage} ></c-progress-bar-child-component>
+                        <c-progress-bar-child-component percentage={percentage} str={myname} onmyevent={handleme} ></c-progress-bar-child-component>
                     </div>
                     <div class="field">
                         <label  >Enter your numbers:</label>

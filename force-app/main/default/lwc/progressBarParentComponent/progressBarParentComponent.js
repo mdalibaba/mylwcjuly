@@ -11,14 +11,24 @@ export default class ProgressBarParentComponent extends LightningElement {
     output;
     num1;
     num2;
+    fromcname;
     changeHandler(event) {
          
         this[event.target.name] = event.target.value <= 100 ? event.target.value : 100;
-        this.template.querySelector('c-progress-bar-child-component').mycmp(this[event.target.name]);
+       this.fromcname= this.template.querySelector('c-progress-bar-child-component').mycmp(this.myname);
+
+       alert('fromcname-->'+fromcname);
     }
     changeHandlerName(event){
         //alert(event.target.name);
         this[event.target.name] = event.target.value !='' ? event.target.value : 'Ali';
+    }
+
+    handleme(event){
+
+         
+        this.fromcname = event.detail.message;
+        alert('fromcname-->'+this.fromcname);
     }
      
     numchange(event){
