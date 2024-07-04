@@ -1,0 +1,27 @@
+<template>
+             <lightning-card title="Related Contacts">
+                <lightning-layout horizontal-align="spread" vertical-align="center">
+                    <template if:true={contacts}>
+                        <table>
+                            <tr >
+                                <th>Select</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                             <template for:each={contacts} for:item="contact">
+                                <tr key={contact.Id}>
+                                    <td>
+                                        <input type="checkbox" data-id={contact.Id} onclick={handleCheckboxClick} />
+                                    </td>
+                                    <td>{contact.Name}</td>
+                                    <td>{contact.Email}</td>
+                                    <td>{contact.Phone}</td>
+                                </tr>
+                            </template>
+                        </table>
+                    </template>
+                     
+                </lightning-layout>
+            </lightning-card>
+</template>
