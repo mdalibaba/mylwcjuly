@@ -8,5 +8,14 @@ public with sharing class RelatedContacts {
             throw new AuraHandledException(e.getMessage());
         }
     }
+    @AuraEnabled
+    public static string saveContacts(List<Contact> contacts){
+        try {
+            upsert contacts;
+            return 'Success';
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
      
 }

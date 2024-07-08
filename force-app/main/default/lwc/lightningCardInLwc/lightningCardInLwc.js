@@ -22,12 +22,12 @@ export default class LightningCardInLwc extends LightningElement {
             {
                 type: 'doughnut', 
                 data: {
-                  labels: [this.totalamount+' Total Amount ', this.averageamount+' Average Amount '],
+                  labels: [this.totalamount+' Total Earnings ', this.averageamount+' Total Deductions '],
                   datasets: [{
                     label: '# of Votes',
                     data: [this.totalamount, this.averageamount],
-                    backgroundColor: ['#0178d1', '#2eb7f6' ],
-                    borderColor: ['#2eb7f6', '#0178d1' ],
+                    backgroundColor: ['#01335c', '#00a4e1' ],
+                    borderColor: ['#00a4e1', '#01335c' ],
                     borderWidth: 1
                   }]
                 },
@@ -42,8 +42,11 @@ export default class LightningCardInLwc extends LightningElement {
                   },
                   title: {
                     display: true,
-                    text: 'Donut Chat'
-                  }
+                    text: 'Paystub Summary'
+                  },
+                   
+                   
+                 
                 }
             }
             

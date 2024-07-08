@@ -1,7 +1,8 @@
 <template>
              <lightning-card title="Related Contacts">
+                <div class="error" if:true={hasErrors}>Please select at least one record.</div>
                 <lightning-layout horizontal-align="spread" vertical-align="center">
-                    <template if:true={contacts}>
+                    <template if:true={mycon}>
                         <table>
                             <tr >
                                 <th>Select</th>
@@ -9,19 +10,26 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                             </tr>
-                             <template for:each={contacts} for:item="contact">
+                             <template for:each={mycon} for:item="contact">
                                 <tr key={contact.Id}>
                                     <td>
-                                        <input type="checkbox" data-id={contact.Id} onclick={handleCheckboxClick} />
+                                        <input type="checkbox" data-id={contact.Id} onclick={handleCheckboxClick}   />
                                     </td>
                                     <td>{contact.Name}</td>
-                                    <td>{contact.Email}</td>
+                                    <td><lightning-input 
+                                      type="email" data-id={contact.Id}
+                                      label="Email address"
+                                      value= {contact.Email} 
+                                      onchange={handleEmailChange} 
+                                    ></lightning-input></td>
                                     <td>{contact.Phone}</td>
                                 </tr>
                             </template>
                         </table>
+                       
                     </template>
                      
                 </lightning-layout>
+                  <lightning-button label="Save" onclick={handleSave}></lightning-button>
             </lightning-card>
 </template>
