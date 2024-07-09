@@ -11,6 +11,7 @@ export default class LightningCardInLwc extends LightningElement {
      
     @api totalamount;
     @api averageamount;
+    @api totaltaxes;
 
     renderedCallback() {   
          
@@ -22,12 +23,12 @@ export default class LightningCardInLwc extends LightningElement {
             {
                 type: 'doughnut', 
                 data: {
-                  labels: [this.totalamount+' Total Earnings ', this.averageamount+' Total Deductions '],
+                  labels: [this.totalamount+' Total Earnings ', this.averageamount+' Total Deductions ',this.totaltaxes+' Total Taxes '],
                   datasets: [{
                     label: '# of Votes',
-                    data: [this.totalamount, this.averageamount],
-                    backgroundColor: ['#01335c', '#00a4e1' ],
-                    borderColor: ['#00a4e1', '#01335c' ],
+                    data: [this.totalamount, this.averageamount,this.totaltaxes],
+                    backgroundColor: ['#01335c', '#00a4e1','orange' ],
+                    borderColor: ['#00a4e1', '#01335c' ,'orange'],
                     borderWidth: 1
                   }]
                 },
