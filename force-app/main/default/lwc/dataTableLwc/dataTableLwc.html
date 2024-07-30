@@ -1,0 +1,12 @@
+<template>
+    <lightning-datatable
+      key-field="id"
+      data={contacts.data}
+      columns={columns}
+      hide-checkbox-column
+      sorted-by="name"
+      sorted-direction="asc"
+       is-loading={contacts.isLoading}
+      onerror={contacts.error}>
+    </lightning-datatable>
+</template>
