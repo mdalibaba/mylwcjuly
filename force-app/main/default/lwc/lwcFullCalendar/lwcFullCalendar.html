@@ -1,0 +1,184 @@
+
+<template>
+
+<lightning-card  variant="Narrow"  
+    title="Time Off Calendar" icon-name="standard:event">
+    <div class="c-container ">
+    <lightning-layout>
+        <lightning-layout-item padding="around-small">
+            <div class="header-column colorLegend1 goldenborder">
+                    
+                <p>Approved</p>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small">
+            <div class="header-column colorLegend2 goldenborder">
+                    
+                <p>Submitted</p>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small">
+            <div class="header-column colorLegend3 goldenborder">
+                
+                <p>Rejected</p>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small">
+            <div class="header-column colorLegend4 goldenborder">
+                    <p>  Cancelled  </p>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+    <div class="slds-grid">
+    <div class="slds-m-around_small">
+        <div id="calendar" class="fullcalendarjs "></div>
+    </div>
+    </div>
+    <template if:true={selectedEvent}>
+    {selectedEvent.title}
+    </template>
+    <!-- Display the Selected Event Details -->
+    <template if:true={selectedEvent} >
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small "
+        aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container " >
+            <header class="slds-modal__header">
+                <button style="color: grey; background-color: transparent; padding: 0px;
+    text-align: center; font-size: 1.5em; border-radius: 5px;
+    border: 1px solid gold;" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick={closeModal}>X</button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Time Off Details</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+            <lightning-card  variant="Narrow"  title={selectedEvent.title} icon-name="standard:event">
+                <div class="slds-p-horizontal--small mycon">
+                    <lightning-layout  multiple-rows>
+                        <lightning-layout-item  size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  "> 
+                    <p class="field-title" title="employee">Employee</p>
+                                <p>{selectedEvent.worker}</p>
+                            </div>
+                        </lightning-layout-item>   
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  "> 
+                    <p class="field-title" title="Leave Type">Leave Type</p>
+                    <p>{selectedEvent.leaveType}</p>
+                            </div>
+                        </lightning-layout-item>
+                 
+                     
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  "> 
+                    <p class="field-title" title="Start Date">Start Date</p>
+                    <p>{selectedEvent.startDate}</p>
+                            </div>
+                        </lightning-layout-item>  
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  "> 
+                    <p class="field-title" title="Total Hours">Total Hours</p>
+                    <p>{selectedEvent.totalHours}</p>
+                            </div>
+                        </lightning-layout-item>
+                
+                 
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  ">
+                    <p class="field-title" title="End Date">End Date</p> 
+                    <p>{selectedEvent.endDate}</p>
+                            </div>
+                        </lightning-layout-item>  
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  ">
+                    <p class="field-title" title="Comments">Comments</p>  
+                    <p>{selectedEvent.comments}</p>
+                            </div>
+                        </lightning-layout-item>
+                
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  ">
+                        <p class="field-title" title="Status">Status</p> 
+                        <p>{selectedEvent.status}</p>
+                            </div>
+                        </lightning-layout-item> 
+                        <template if:false={selectedEvent.approve} >
+                        <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+                            <div class="header-column  ">
+                        <p class="field-title" title="Reject Comments">Reject Comments</p> 
+                         <lightning-textarea onchange={commentChange} name="input3" label="Reject Comments" placeholder="Comments are mandatory to Reject..." variant="label-hidden"></lightning-textarea>
+                            </div>
+                        </lightning-layout-item> 
+                        </template>
+                    </lightning-layout>
+                </div>
+            </lightning-card>
+            
+            </div>
+            <footer class="slds-modal__footer">
+                <template if:true={selectedEvent.submitted} >
+                    <template if:true={selectedEvent.currentuser} >
+                            <button class="slds-button slds-button_brand" style="background-color:rgb(46, 132, 74) !important;" title="Approve" onclick={cmpapprove} >Approve</button>
+                          <button class="slds-button slds-button_brand" style="background-color: rgb(234, 0, 30) !important " title="reject" onclick={cmpreject} >Reject</button>
+                          </template>
+               </template>
+                        <!--template if:true={selectedEvent.submitted} >
+                            <button class="slds-button slds-button_brand"  title="Approve">Cancel</button>
+                            </template-->
+                <button class="slds-button slds-button_brand" onclick={closeModal}>Cancel</button>
+
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Display the Created Record Details -->
+    <template if:true={createRecord}>
+    <div class="custom-modal">
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+            <span class="slds-modal__close">
+            </span>
+            <h2 class="slds-text-heading_medium slds-hyphenate">SELECT EVENT</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium">
+            Please SELECT any of the colored event from Calendar cells
+
+            <lightning-layout>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column colorLegend1">
+                            
+                        <p>Approved</p>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column colorLegend2">
+                            
+                        <p>Submitted</p>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column colorLegend3">
+                        
+                        <p>Rejected</p>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <div class="header-column colorLegend4">
+                            <p>  Cancelled  </p>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            </div>
+            <footer class="slds-modal__footer">
+            <lightning-button label="Cancel" title="Cancel" onclick={createCancel} class="slds-m-right_small"></lightning-button>
+            <lightning-button variant="brand" label="Save" title="Save"></lightning-button>
+            </footer>
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    </template>
+</lightning-card>
+</template>

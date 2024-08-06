@@ -1,0 +1,31 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <div class="slds-grid slds-grid_align-spread">
+                <button class="slds-button slds-button_neutral" onclick={prevMonth}>Previous</button>
+                <h2>{monthYear}</h2>
+                <button class="slds-button slds-button_neutral" onclick={nextMonth}>Next</button>
+            </div>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <template for:each={daysOfWeek} for:item="day">
+                            <th key={day}>{day}</th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={weeks} for:item="week" for:index="weekIndex">
+                        <tr key={weekIndex}>
+                            <template for:each={week} for:item="day" for:index="dayIndex">
+                                <td key={weekIndex + '-' + dayIndex} class={day.class}>
+                                    {day.date}
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

@@ -5,7 +5,7 @@ import saveContacts from '@salesforce/apex/RelatedContacts.saveContacts';
 export default class RelatedContacts extends LightningElement {
 
    @api recordId
-   contacts=[];
+  // contacts=[];
    mycon=[];
    selectedIds=[];
    @track selectedRecords = [];
@@ -13,16 +13,18 @@ export default class RelatedContacts extends LightningElement {
 
         @wire(getContacts, { recordId: '$recordId' }) contacts({ error, data }) {
             if (data) {
+                 
                 try{
+                   let contacts=[];
                     console.log(JSON.stringify(data));
                     
                     data.forEach(element => {
-                        this.contacts.push({"Id":element.Id,"Name":element.Name,"Email":element.hasOwnProperty('Email') ? element.Email :''});
+                        contacts.push({"Id":element.Id,"Name":element.Name,"Email":element.hasOwnProperty('Email') ? element.Email :''});
                     }); 
                      
                    
                     console.log(JSON.stringify(this.contacts));
-                    this.mycon=this.contacts;
+                    this.mycon=contacts;
                 }catch(e){
 
 
@@ -108,6 +110,7 @@ export default class RelatedContacts extends LightningElement {
                 );
         })
             .catch(error => {
+                
                 console.log(JSON.stringify( error));
                 this.dispatchEvent(
                     new ShowToastEvent({

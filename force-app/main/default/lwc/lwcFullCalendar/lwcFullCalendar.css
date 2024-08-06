@@ -1,0 +1,60 @@
+  div.colorLegend1 {
+    background-color: rgb(46, 132, 74) !important;
+    border: 1px solid rgb(46, 132, 74) !important;
+    border-radius: 17px;
+    padding: 5px;
+     
+    font-weight: 600;
+    color: white;
+}
+  div.colorLegend2 {
+    background-color: rgb(254, 147, 57) !important;  
+    border: 1px solid rgb(254, 147, 57) !important;
+    border-radius: 17px;
+    padding: 5px;
+    
+    font-weight: 600;
+    color: black;
+}
+  div.colorLegend3 {
+    background-color: rgb(234, 0, 30) !important;
+
+    border: 1px solid rgb(234, 0, 30) !important;
+    border-radius: 17px;
+    padding: 5px;
+     
+    font-weight: 600;
+    color: white;
+}
+ div.colorLegend4 {
+    background-color: #b0cc6f !important;
+    border: 1px solid #b0cc6f !important;
+    border-radius: 17px;
+    padding: 5px;
+     
+    font-weight: 600;
+    color: black;
+}
+
+.goldenborder{
+   border: 1px solid gold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .goldenborder:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+  .mycon{
+    border: 1px solid gold;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     transition: transform 0.2s, box-shadow 0.2s;
+   }
+  .mytble:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+ 
