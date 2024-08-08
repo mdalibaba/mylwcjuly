@@ -223,7 +223,7 @@ export default class LwcFullCalendar extends NavigationMixin(LightningElement) {
           new ShowToastEvent({
             variant: "Error",
             title: "Error",
-            message: "Please enter a comment"
+            message: "Please enter a Reject Comments"
           })
         );
         return false;

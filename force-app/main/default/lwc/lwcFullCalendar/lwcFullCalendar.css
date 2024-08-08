@@ -57,4 +57,43 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+
+.box{
+  background-color:red;
+  height:auto;
+  animation: grow 1s forwards;
+ 
+  }
+   @keyframes grow {
+  from{
+  scale:0;
+  }
+  to{
+  scale:1;
+  }
+  
+  }
+   
+   
+    .animate {
+   background-color:red;
+  
+animation: myAnimation 2s infinite;
+}
+
+@keyframes myAnimation {
+0% {
+  opacity: 0;
+  transform: translateX(0);
+}
+50% {
+  opacity: 1;
+  transform: translateX(50px);
+}
+100% {
+  opacity: 0;
+  transform: translateX(0);
+}
+}
+
  

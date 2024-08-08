@@ -1,6 +1,6 @@
 
 <template>
-
+    <div class="box"> 
 <lightning-card  variant="Narrow"  
     title="Time Off Calendar" icon-name="standard:event">
     <div class="c-container ">
@@ -104,7 +104,7 @@
                         <template if:false={selectedEvent.approve} >
                         <lightning-layout-item size="2" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
                             <div class="header-column  ">
-                        <p class="field-title" title="Reject Comments">Reject Comments</p> 
+                        <p class="field-title" title="Reject Comments" style="padding-bottom: 10px;"><b style="color:red;">*</b> Reject Comments </p> 
                          <lightning-textarea onchange={commentChange} name="input3" label="Reject Comments" placeholder="Comments are mandatory to Reject..." variant="label-hidden"></lightning-textarea>
                             </div>
                         </lightning-layout-item> 
@@ -133,7 +133,7 @@
     </template>
 
     <!-- Display the Created Record Details -->
-    <template if:true={createRecord}>
+    <!--template if:true={createRecord}>
     <div class="custom-modal">
         <section role="dialog" class="slds-modal slds-fade-in-open">
         <div class="slds-modal__container">
@@ -179,6 +179,7 @@
         </section>
         <div class="slds-backdrop slds-backdrop_open"></div>
     </div>
-    </template>
+    </template-->
 </lightning-card>
+</div>
 </template>
