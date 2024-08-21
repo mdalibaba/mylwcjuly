@@ -29,6 +29,7 @@ export default class FullCalendarJs extends NavigationMixin(LightningElement) {
    *              Ensures that the page loads and renders the 
    *              container before doing anything else
    */
+
   renderedCallback() {
 
     // Performs this operation only on first render

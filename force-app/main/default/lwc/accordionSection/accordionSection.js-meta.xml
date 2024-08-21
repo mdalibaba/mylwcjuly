@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="fullCalendarJs">
-    <apiVersion>51.0</apiVersion>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
     <isExposed>true</isExposed>
-    <masterLabel>Full Calendar</masterLabel>
     <targets>
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>
@@ -10,4 +9,4 @@
         <target>lightningCommunity__Page</target>
         <target>lightningCommunity__Default</target>
     </targets>
-</LightningComponentBundle> 
+</LightningComponentBundle>

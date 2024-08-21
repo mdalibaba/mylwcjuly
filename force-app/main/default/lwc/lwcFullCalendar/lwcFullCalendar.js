@@ -28,7 +28,15 @@ export default class LwcFullCalendar extends NavigationMixin(LightningElement) {
   @track allEvents = [];
   @track selectedEvent = undefined;
   createRecord = false;
+  @track reloadKey = 0;
+  handleReload() {
+    // Increment the reloadKey to force a re-render
+     
 
+    window.location.reload();
+  
+     
+}
   /**
    * @description Standard lifecyle method 'renderedCallback'
    *              Ensures that the page loads and renders the 
@@ -72,6 +80,7 @@ export default class LwcFullCalendar extends NavigationMixin(LightningElement) {
    */
   initialiseFullCalendarJs() {
     const ele = this.template.querySelector('div.fullcalendarjs');
+    let calendarHeight = window.innerWidth < 600 ? 400 : 1020;
     // eslint-disable-next-line no-undef
     $(ele).fullCalendar({
       header: {
@@ -91,7 +100,7 @@ export default class LwcFullCalendar extends NavigationMixin(LightningElement) {
       eventDrop: this.eventDropHandler.bind(this),
       eventClick: this.eventClickHandler.bind(this),
       dayClick : this.dayClickHandler.bind(this),
-      height: 1020,
+      height: calendarHeight,
       contentHeight: 600,
       eventMouseover : this.eventMouseoverHandler.bind(this)
     });

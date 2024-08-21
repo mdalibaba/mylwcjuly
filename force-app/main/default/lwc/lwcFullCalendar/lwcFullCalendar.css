@@ -1,4 +1,6 @@
-  div.colorLegend1 {
+  
+  
+   div.colorLegend1 {
     background-color: rgb(46, 132, 74) !important;
     border: 1px solid rgb(46, 132, 74) !important;
     border-radius: 17px;
@@ -35,6 +37,15 @@
     font-weight: 600;
     color: black;
 }
+div.colorLegend5 {
+  background-color: white !important;
+  border: 1px solid #d982453d !important;
+  border-radius: 17px;
+  padding: 5px;
+   
+  font-weight: 600;
+  color: black;
+}
 
 .goldenborder{
    border: 1px solid gold;
@@ -56,10 +67,13 @@
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+.slds-modal__footer{
+  text-align: center;
+}
 
 
 .box{
-  background-color:red;
+  background-color:rgb(60, 147, 247);
   height:auto;
   animation: grow 1s forwards;
  
@@ -95,5 +109,40 @@ animation: myAnimation 2s infinite;
   transform: translateX(0);
 }
 }
+
+ 
+
+@media only screen and (max-width: 600px) {
+  .fullcalendarjs {
+    height: auto; /* Adjust height */
+    padding: 1px; /* Add padding */
+    width: 100%;
+    font-size:10px;
+  }
+  .c-container .header-column {
+      padding: 1px;
+      text-align: center;
+      font-size:9px;
+      width: 100%;
+  }
+  .slds-modal__footer{
+    text-align: center;
+    font-size: 12px;
+  }
+  .mybt {
+    --slds-button_icon-size: 1rem; /* Adjust the size to your preference */
+    --slds-button_icon-padding: 0.25rem; /* Adjust padding if needed */
+}
+}
+.mybt {
+  --slds-button_icon-size: 1rem; /* Size of the icon */
+  --slds-button_icon-width: 1.5rem; /* Width of the button */
+  --slds-button_icon-height: 1.5rem; /* Height of the button */
+  padding: 0; /* Remove default padding */
+}
+
+
+
+ 
 
  
